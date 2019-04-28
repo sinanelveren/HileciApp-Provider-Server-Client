@@ -204,13 +204,19 @@ connections.
 
 
 Rules
+
     a) Your program must handle eventual errors gracefully according to the POSIX traditions.
+  
     b) Your program must print usage information in case of incorrect or missing command line
     arguments.
+   
     c) "You are expected to submit a report explaining in detail how your project design provides
     the required behavior and how you have solved any eventual problems you have
     encountered." Report format will be pdf.
+   
     d) Provide a makefile to compile your homework. Do not run your program inside makefile.
     Just compile it.
+    
     e) Test your homework using the Virtual Machine given to you.
+    
     f) No late submissions.g) Use POSIX and Standard C libraries. You can write your program using C11 standards.

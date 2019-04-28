@@ -1,0 +1,6 @@
+
+	Usage Information : <COMPILE>
+		$make			
+		$homeworkServer  <portNumber>  <dataFile>  <logFile>
+		$./clientApp <clientName> <priority> <int-hw> <serverAddress> <port> 
+

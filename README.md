@@ -60,25 +60,24 @@ a) server
 Admits as command line argument:
    
     - the connection port for listening to clients
-
     - file of providers
-
     - and the log file
 
     You are provided with a file data.dat containing the list of providers and their parameters.
     e.g. Murat 2 200 360 means
 
     Murat is his name, 2 is his performance (i.e. quality of homeworks solved), 
-    200TL is his price and
-    he’ll remain logged in for 360 seconds in total.
-    Your server will read this file at startup, and create one thread per provider, and then wait for client connections.
+    200TL is his price and he’ll remain logged in for 360 seconds in total.
 
-    Once a client connects, your server will forward the homework to the corresponding provider. If no
-    provider is available an error message “NO PROVIDER IS AVAILABLE” will be sent to the client.
+    Your server will read this file at startup, and create one thread per provider, and then wait for
+    client connections.
 
-    Your server will continue to work until a termination signal is received, in which case it will first
-        close up all client sockets by sending a polite message such as “SERVER SHUTDOWN” and
+    Once a client connects, your server will forward the homework to the corresponding provider. 
+    If no provider is available an error message “NO PROVIDER IS AVAILABLE” 
+    will be sent to the client.
 
+    Your server will continue to work until a termination signal is received, in which case it will 
+    first close up all client sockets by sending a polite message such as “SERVER SHUTDOWN” and
     terminate all provider threads.
 
 
@@ -89,17 +88,16 @@ b) client
 Every client will consist of a separate process with the following commandline arguments:
     
     - client name as a string
-
     - her/his priority ‘C’ for low cost or ‘Q’ for high quality/performance or ‘T’ for high speed
-
     - the homework as an integer denoting degree
-
     - server address
-
     - server port address
 
-    and will connect to the server send a request in the form of a simple string:
-    e.g. “Hileci C 45” means the client’s name is Hileci, his priority is low cost and the homework is
+
+
+and will connect to the server send a request in the form of a simple string:
+e.g. 
+    “Hileci C 45” means the client’s name is Hileci, his priority is low cost and the homework is
     cos(45)
 
     “Hileci2 Q 55” means the client’s name is Hileci2, his priority is high performance and the
@@ -108,12 +106,12 @@ Every client will consist of a separate process with the following commandline a
     “Hileci3 T 30” means the client’s name is Hileci3, his priority is high speed and the homework
     is cos(30).
 
-    Sample output for a client console:
+
+
+Sample output for a client console:
 
     Client Hileci is requesting Q 45 from server 127.0.0.1:5555
-
     Hileci’s task completed by Ayse in 7.53 seconds, cos(45)=0.707, cost is 900TL,
-
     total time spent 7.89 seconds.
 
 
@@ -124,27 +122,23 @@ c) provider
     Every provider will wait for tasks in her/his queue, complete the task, sleep for a random duration
 
     between 5-15 seconds (to simulate hard work...), and return its result to the client. Once the login
-
     time is up, the provider will logout and her/his thread will be terminated.
 
-    Sample output for a provider processing a task:
+
+
+Sample output for a provider processing a task:
 
     Provider Ayse is waiting for a task
-
     Provider Ayse is processing task number 1: 45
-
-    Provider Ayse completed task number 1: cos(45)=0.707 in 7.53 seconds.
-
+    Provider Ayse completed task number 1: cos(45)=0.707 in 7.53 seconds
     Provider Ayse is processing task number 2: 55
-
     Provider Ayse completed task number 2: cos(55)=0.573 in 9.71 seconds.
-
     Provider Ayse is waiting for a task
 
 
 
 If everything goes well your application should print on screen something like the following:
-- server (together with providers)
+    - server (together with providers)
 
 
 $homeworkServer 5555 data.dat log.dat
